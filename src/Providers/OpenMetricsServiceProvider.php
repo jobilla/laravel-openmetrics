@@ -15,15 +15,16 @@ use Prometheus\Storage\Redis;
 class OpenMetricsServiceProvider extends ServiceProvider
 {
     protected CollectorRegistry $registry;
+    protected $configuration_path = __DIR__ . '/../../config/openmetrics.php';
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/openmetrics.php', 'openmetrics');
+        $this->mergeConfigFrom($this->configuration_path, 'openmetrics');
     }
 
     public function boot(Repository $config, Kernel $kernel)
     {
-        $this->publishes([__DIR__ . '/../config/openmetrics.php'], 'laravel-openmetrics');
+        $this->publishes([$this->configuration_path], 'laravel-openmetrics');
 
         if ($config->get('openmetrics.enabled', true)) {
             $this->app->singleton(CollectorRegistry::class, function() use ($config) {
