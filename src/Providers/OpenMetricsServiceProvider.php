@@ -8,6 +8,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Http\Kernel;
 use Jobilla\LaravelOpenMetrics\Exceptions\UnsupportedAdapterException;
 use Jobilla\LaravelOpenMetrics\Handlers\Database;
+use Jobilla\LaravelOpenMetrics\Handlers\Http;
 use Jobilla\LaravelOpenMetrics\Http\Controllers\Metrics;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\APCng;
@@ -53,6 +54,10 @@ class OpenMetricsServiceProvider extends ServiceProvider
 
             if ($config->get('openmetrics.handles.database')) {
                 $this->app->make(Database::class)->handle();
+            }
+
+            if ($config->get('openmetrics.handles.http')) {
+                $this->app->make(Http::class)->handle();
             }
 
             if ($config->get('openmetrics.route.enabled')) {

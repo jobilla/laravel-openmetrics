@@ -19,10 +19,13 @@ return [
 
     'handles' => [
         'database' => env('OPENMETRICS_HANDLE_DATABASE', true),
+        'http' => env('OPENMETRICS_HANDLE_HTTP', true),
     ],
 
     'route' => [
         'enabled' => env('OPENMETRICS_ROUTE_ENABLED', true),
         'path' => env('OPENMETRICS_ROUTE_PATH', '/metrics'),
-    ]
+    ],
+
+    'buckets' => [0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 2.5, 5.0],
 ];
