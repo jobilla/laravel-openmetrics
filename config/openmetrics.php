@@ -19,5 +19,10 @@ return [
 
     'handles' => [
         'database' => env('OPENMETRICS_HANDLE_DATABASE', true),
+    ],
+
+    'route' => [
+        'enabled' => env('OPENMETRICS_ROUTE_ENABLED', true),
+        'path' => env('OPENMETRICS_ROUTE_PATH', '/metrics'),
     ]
 ];
