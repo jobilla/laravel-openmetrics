@@ -15,12 +15,18 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "promphp/prometheus_client_php": "^2.6"
+        "promphp/prometheus_client_php": "^2.6",
+        "illuminate/support": "^9.22"
+    },
+    "suggest": {
+        "ext-redis": "Required if using Redis.",
+        "ext-apc": "Required if using APCu.",
+        "symfony/polyfill-apcu": "Required if you use APCu on PHP8.0+"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Jobilla\\LaravelOpenMetrics\\OpenMetricsServiceProvider"
+                "Jobilla\\LaravelOpenMetrics\\Providers\\OpenMetricsServiceProvider"
             ]
         }
     }
