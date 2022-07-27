@@ -1,0 +1,27 @@
+{
+    "name": "jobilla/laravel-openmetrics",
+    "description": "Open Metrics / Prometheus metrics reporter for Laravel",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jobilla\\LaravelOpenMetrics\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alex Bowers",
+            "email": "alex.bowers@jobilla.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "promphp/prometheus_client_php": "^2.6"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jobilla\\LaravelOpenMetrics\\OpenMetricsServiceProvider"
+            ]
+        }
+    }
+}
